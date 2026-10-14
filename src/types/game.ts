@@ -38,6 +38,7 @@ export interface OwnedBusiness {
     businessId: string,
     amt: number,
     upgradeLevels: Record<string, number>
+    cycleProgressSeconds: number
 }
 
 export interface GameState {
