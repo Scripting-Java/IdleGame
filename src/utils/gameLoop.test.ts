@@ -1,4 +1,4 @@
-import {describe, expect, it, vi, afterEach, test} from "vitest"
+import {describe, expect, it, vi, afterEach} from "vitest"
 import type { Business, GameState } from "../types/game"
 import { advanceProduction } from "./gameLoop"
 
@@ -24,8 +24,9 @@ function createState(amt: number, cycleProgressSeconds = 0): GameState{
                 amt,
                 upgradeLevels:{},
                 cycleProgressSeconds
-            }
-        }
+            },
+        },
+        unlockedBusinesses: ["test-farm"]
     }
 }
 
@@ -47,6 +48,7 @@ describe("advanceProduction",()=>{
         expect(result.money).toBe(5)
         expect(result.businesses["test-farm"].cycleProgressSeconds).toBe(0)
 })
+
    it("preserves leftover progress after completing cycles", () => {
         const result = advanceProduction(createState(1), [testBusiness], 5);
 

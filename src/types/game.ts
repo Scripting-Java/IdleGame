@@ -27,11 +27,11 @@ export interface Upgrade {
     description: string,
     type: UpgradeType,
     baseCost: number,
-    bonusChance?:number, //chance of getting the bonus multiplier
-    cyclesMult?:number, //speed multiplier by making it faster, lower is better
+    bonusChance?: number, //chance of getting the bonus multiplier
+    cyclesMult?: number, //speed multiplier by making it faster, lower is better
     bonusMult?: number, //bonus chance multiplier
-    prodMult?:number, //number of goods produced so 1.2 is 1.2x goods produced.
-    maxLevel?: number
+    prodMult?: number, //number of goods produced so 1.2 is 1.2x goods produced.
+    maxLevel?: number,
 }
 
 export interface OwnedBusiness {
@@ -43,5 +43,6 @@ export interface OwnedBusiness {
 
 export interface GameState {
     money: number,
-    businesses: Record<string, OwnedBusiness>
+    businesses: Record<string, OwnedBusiness>,
+    unlockedBusinesses: string[]
 }
