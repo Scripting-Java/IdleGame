@@ -16,9 +16,12 @@ function App() {
     setGame(previousGame => {
       if (previousGame.unlockedBusinesses.includes(business.id))
         return previousGame
-
+      if (previousGame.money < business.unlockCost)
+        return previousGame
       return {
-        ...previousGame, unlockedBusinesses: [...previousGame.unlockedBusinesses, business.id]
+        ...previousGame,
+        money: previousGame.money - business.unlockCost,
+        unlockedBusinesses: [...previousGame.unlockedBusinesses, business.id]
       }
     }
     )
@@ -46,12 +49,6 @@ function App() {
       {businesses.map(business => {
         const owned = game.businesses[business.id]
         const cost = getBusinessCost(business.baseCost, owned?.amt ?? 0, business.category)
-        console.log(business.name, {
-          baseCost: business.baseCost,
-          ownedAmount: owned?.amt ?? 0,
-          tier: business.category,
-          cost
-        })
         const unlocked = game.unlockedBusinesses.includes(business.id)
         const maxAffordable = getMaxAffordableAmount(game.money, owned?.amt ?? 0, business.category, business)
 
