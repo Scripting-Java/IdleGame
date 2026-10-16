@@ -1,4 +1,5 @@
-import type { Business, GameState, BusinessCategory } from "../types/game";
+import type { Business, GameState, BusinessCategory, Upgrade } from "../types/game";
+
 
 export function getTierScaling(tier: BusinessCategory): number {
     if (tier === "farms")
@@ -25,7 +26,7 @@ export function getCostScaling(businessAmt: number): number {
 
 export function getBusinessCost(baseCost: number, ownedAmount: number, tier: BusinessCategory): number {
     const rawCost = baseCost * (getCostScaling(ownedAmount) + 1) * getTierScaling(tier)
-    return Math.ceil(rawCost - Number.EPSILON*rawCost)
+    return Math.ceil(rawCost - Number.EPSILON * rawCost)
 }
 
 export function purchaseBusiness(state: GameState, business: Business): GameState {
@@ -62,4 +63,39 @@ export function getMaxAffordableAmount(money: number, ownedAmount: number, tier:
     while (getBulkBusinessCost(ownedAmount, quantity + 1, tier, business) <= money)
         quantity++
     return quantity
+}
+
+export function getUpgradeCost(upgrade: Upgrade, tier: BusinessCategory, numOfUpgrades: number): number {
+    return Math.pow(upgrade.baseCost*getTierScaling(tier), numOfUpgrades/10)
+}
+
+export function purchaseUpgrade(state: GameState, business: Business, upgradeId: string): GameState {
+    const ownedBusiness = state.businesses[business.id]
+
+    if (!ownedBusiness || ownedBusiness.amt <= 0)
+        return state
+
+    const upgrade = business.upgrades.find(item => item.id === upgradeId)
+    if (!upgrade)
+        return state
+
+    const currentLevel = Math.max(0, Math.floor(ownedBusiness.upgradeLevels[upgradeId] ?? 0))
+
+    if (upgrade.maxLevel !== undefined && currentLevel >= upgrade.maxLevel)
+        return state
+
+    const cost = getUpgradeCost(upgrade, business.category, currentLevel)
+
+    if (!Number.isFinite(cost) || cost < 0 || state.money < cost)
+        return state
+
+    return {
+       ...state,money:state.money-cost,businesses:{
+        ...state.businesses,[business.id]:{
+            ...ownedBusiness, upgradeLevels:{
+                ...ownedBusiness.upgradeLevels,[upgradeId]: currentLevel+1
+            }
+        }
+       }
+    }
 }
