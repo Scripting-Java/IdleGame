@@ -3,7 +3,8 @@ import './App.css'
 import { businesses } from './data/businesses'
 import { advanceProduction } from './utils/gameLoop'
 import { createInitialState } from './utils/initialState'
-import { purchaseBusiness, getBusinessCost, getMaxAffordableAmount } from './utils/purchases'
+import { formatCost, formatQuants } from './utils/formatters'
+import { purchaseBusiness, getBusinessCost, getMaxAffordableAmount, getMaxUpgrades, getUpgradeCost, purchaseUpgrade } from './utils/purchases'
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
 
       previousTime = currentTime
       setGame(previousGame => advanceProduction(previousGame, businesses, elapsedSeconds))
-    }, 250)
+    }, 1000)
 
     return () => window.clearInterval(timer)
   }, [])
@@ -44,7 +45,7 @@ function App() {
     <section>
       <h1>Time Forge</h1>
       <p>Become the richest industrialist of all time.</p>
-      <p>Money: ${game.money.toFixed(2)}</p>
+      <p>Money: {formatCost(game.money)}</p>
       <h2>Businesses</h2>
       {businesses.map(business => {
         const owned = game.businesses[business.id]
@@ -56,9 +57,9 @@ function App() {
           <div key={business.id}>
             <h3>{business.name}</h3>
             <p>{business.description}</p>
-            <p>Owned: {owned?.amt ?? 0}</p>
-            <p>Cost: ${cost.toFixed(2)}</p>
-            <p>{!unlocked && `Unlock Cost: $${business.unlockCost}`}</p>
+            <p>Owned: {formatQuants(owned?.amt ?? 0)}</p>
+            <p>Cost: {formatCost(cost)}</p>
+            <p>{!unlocked && `Unlock Cost: ${formatCost(business.unlockCost)}`}</p>
 
             {!unlocked && game.money >= business.unlockCost && (
               <button onClick={() => handleUnlock(business)}>
@@ -93,12 +94,46 @@ function App() {
                   return nextGame
                 })
               }}
-              disabled={!unlocked || maxAffordable === 0}
+              disabled={!unlocked || maxAffordable === 0 || maxAffordable === 1}
+              hidden={!unlocked || maxAffordable === 0 || maxAffordable === 1}
+
             >
               Buy Max ({maxAffordable})
             </button>
-          </div>
-        )
+
+            {unlocked && owned && owned.amt > 0 && (
+              <div>
+                <h4>Upgrades</h4>
+                {business.upgrades.map(upgrade => {
+                  const level = owned.upgradeLevels[upgrade.id] ?? 0
+                  const cost = getUpgradeCost(upgrade, business.category, level)
+                  const maxed = upgrade.maxLevel !== undefined && level >= upgrade.maxLevel
+                  const maxUpgrades = getMaxUpgrades(game.money, upgrade, business.category, level)
+
+                  return (
+                    <div key={upgrade.id}>
+                      <h5>{upgrade.name}</h5>
+                      <p>{upgrade.description}</p>
+                      <p>Level: {level} {upgrade.maxLevel !== undefined && ` / ${upgrade.maxLevel}`}</p>
+                      <p>Cost: {formatCost(cost)}</p>
+                      <button disabled={maxed || game.money < cost} onClick={() => { setGame(prevGame => purchaseUpgrade(prevGame, business, upgrade.id)) }}>
+                        {maxed ? 'Already At Max Level' : 'Buy Upgrade'}
+                      </button>
+                      <button disabled={maxUpgrades === 0 || maxUpgrades === 1}
+                        hidden={maxUpgrades === 0 || maxUpgrades === 1}
+                        onClick={() => {
+                          setGame(prevGame => {
+                            let game = prevGame
+                            for (let i = 0; i < maxUpgrades; i++) {
+                              game = purchaseUpgrade(game, business, upgrade.id)
+                            }
+                            return game
+                          }) 
+                        }}>Buy Max ({maxUpgrades})</button>
+                    </div>)
+                })}
+              </div>)}
+          </div>)
       })}
     </section>
   )

@@ -2,8 +2,8 @@ import type { Upgrade, Business, OwnedBusiness } from "../types/game";
 
 export function getPurchasedUpgrades(business: Business, ownedBusiness: OwnedBusiness): Upgrade[] {
     return business.upgrades.flatMap(upgrade => {
-        const ownedLevel = Math.max(0,Math.floor(ownedBusiness.upgradeLevels[upgrade.id]??0))
-        const level = upgrade.maxLevel === undefined ? ownedLevel:Math.min(ownedLevel,upgrade.maxLevel)
+        const ownedLevel = Math.max(0, Math.floor(ownedBusiness.upgradeLevels[upgrade.id] ?? 0))
+        const level = upgrade.maxLevel === undefined ? ownedLevel : Math.min(ownedLevel, upgrade.maxLevel)
         return Array.from({ length: level }, () => upgrade)
     })
 }
@@ -46,29 +46,43 @@ export function getExpectedBonusMultiplier(upgrades: Upgrade[]): number {
     }, 1)
 }
 
+
 export function getBusinessProduction(business: Business, ownedBusiness: OwnedBusiness) {
-    const upgrades = getPurchasedUpgrades(business, ownedBusiness)
-    const multipliers = getUpgradeMultipliers(upgrades)
-    const expectedBonusMult = getExpectedBonusMultiplier(upgrades)
+    let prodMult = 1
+    let cyclesMult = 1
+    let expectedBonusMult = 1
+    let hasBonus = false
+
+    const upgrades = business.upgrades.filter(upgrade => {
+        const ownedLevel = Math.max(0, Math.floor(ownedBusiness.upgradeLevels[upgrade.id] ?? 0))
+        const level = upgrade.maxLevel === undefined ? ownedLevel : Math.min(ownedLevel, upgrade.maxLevel)
+        if (level <= 0) return false
+        prodMult *= Math.pow(upgrade.prodMult ?? 1, level)
+        cyclesMult *= Math.pow(upgrade.cyclesMult ?? 1, level)
+
+        if (upgrade.bonusChance !== undefined && upgrade.bonusMult !== undefined) {
+            hasBonus = true
+            const chance = Math.max(0, Math.min(1, upgrade.bonusChance))
+            const expectedPerLevel = 1 + chance * (upgrade.bonusMult - 1)
+            expectedBonusMult *= Math.pow(expectedPerLevel, level)
+        }
+
+        return true
+    })
 
     return {
-        upgrades,
-        cycleTimeSeconds: business.cycleTimeSeconds * multipliers.cyclesMult,
-        revenuePerCycle: business.revenuePerCycle * multipliers.prodMult,
+        upgrades, hasBonus, expectedBonusMult, cycleTimeSeconds: business.cycleTimeSeconds * cyclesMult, revenuePerCycle: business.revenuePerCycle * prodMult,
         incomePerSecond: calcIncomePerSecond(
             business.cycleTimeSeconds,
             business.revenuePerCycle,
-            multipliers.prodMult,
-            multipliers.cyclesMult
+            prodMult,
+            cyclesMult
         ),
-        expectedIncomePerSecond: calcIncomePerSecond(
-            business.cycleTimeSeconds,
-            business.revenuePerCycle,
-            multipliers.prodMult * expectedBonusMult,
-            multipliers.cyclesMult
+        expectedIncomePerSecond: calcIncomePerSecond(business.cycleTimeSeconds,business.revenuePerCycle,prodMult * expectedBonusMult,cyclesMult
         )
     }
 }
+
 
 export function calcIncomePerSecond(cycleTimeSeconds: number, revPerCycle: number, prodMult: number = 1, cycleTimeMult: number = 1): number {
     const actualCycleTime = cycleTimeSeconds * cycleTimeMult

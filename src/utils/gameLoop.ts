@@ -1,5 +1,5 @@
 import type { Business, GameState } from "../types/game";
-import { calcBonus, getBusinessProduction } from "./production";
+import { getBusinessProduction } from "./production";
 
 export function advanceProduction(state: GameState, catalog: Business[], elapsedSeconds: number,): GameState {
     if (!Number.isFinite(elapsedSeconds) || elapsedSeconds <= 0)
@@ -21,19 +21,23 @@ export function advanceProduction(state: GameState, catalog: Business[], elapsed
 
         const totalProgress = Math.max(0, ownedBusiness.cycleProgressSeconds ?? 0) + elapsedSeconds
         const completedCycles = Math.floor(totalProgress / cycleTime)
-
         updatedBusinesses[business.id] = { ...ownedBusiness, cycleProgressSeconds: totalProgress - completedCycles * cycleTime, }
 
-        for (let cycle = 0; cycle < completedCycles; cycle++) {
-            for (let copy = 0; copy < ownedBusiness.amt; copy++) {
-                moneyEarned += calcBonus(
-                    production.revenuePerCycle,
-                    production.upgrades
-                )
-            }
-        }
+        const hasBonus = production.hasBonus
+        const prod = completedCycles * ownedBusiness.amt
+        if (!hasBonus) moneyEarned += prod * production.revenuePerCycle
+        else moneyEarned += prod * production.revenuePerCycle * production.expectedBonusMult
     }
-
+    if (
+        !Number.isFinite(moneyEarned) ||
+        !Number.isFinite(state.money + moneyEarned)
+    ) {
+        console.error("Invalid production values", {
+            money: state.money,
+            moneyEarned,
+            businesses: state.businesses,
+        });
+    }
     return {
         ...state,
         money: state.money + moneyEarned,

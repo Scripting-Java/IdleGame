@@ -24,10 +24,15 @@ export function getCostScaling(businessAmt: number): number {
     return 24
 }
 
+
 export function getBusinessCost(baseCost: number, ownedAmount: number, tier: BusinessCategory): number {
-    const rawCost = baseCost * (getCostScaling(ownedAmount) + 1) * getTierScaling(tier)
-    return Math.ceil(rawCost - Number.EPSILON * rawCost)
+    let cost = baseCost * getTierScaling(tier)
+    for (let i = 0; i < ownedAmount; i++) {
+        cost *= 1 + 0.25 * getCostScaling(i)
+    }
+    return Math.ceil(cost - Number.EPSILON * cost)
 }
+
 
 export function purchaseBusiness(state: GameState, business: Business): GameState {
     const ownedBusiness = state.businesses[business.id]
@@ -63,6 +68,21 @@ export function getMaxAffordableAmount(money: number, ownedAmount: number, tier:
     while (getBulkBusinessCost(ownedAmount, quantity + 1, tier, business) <= money)
         quantity++
     return quantity
+}
+
+export function getMaxUpgrades(money:number, upgrade:Upgrade, tier: BusinessCategory, currentLevel:number):number{
+    let moneyLeft = money
+    let lvl = currentLevel
+    let amt = 0
+
+    while(upgrade.maxLevel===undefined||lvl<upgrade.maxLevel){
+        const cost = getUpgradeCost(upgrade,tier,lvl)
+        if(moneyLeft<cost) break
+        moneyLeft-=cost
+        lvl++
+        amt++
+    }
+    return amt
 }
 
 export function getUpgradeCost(upgrade: Upgrade, tier: BusinessCategory, numOfUpgrades: number): number {
