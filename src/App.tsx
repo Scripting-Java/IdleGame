@@ -18,6 +18,8 @@ import robotFactoryLogo from "./assets/Logos/RoboticsFactory.png"
 import clockMakerLogo from "./assets/Logos/Watchmaker.png"
 import wheatFarmLogo from "./assets/Logos/WheatFarm.png"
 import lumberMillLogo from "./assets/Logos/LumberMill.png"
+import TopMenuBar from './components/TopMenuBar'
+import { getIncomePerSec } from './utils/income'
 
 function App() {
 
@@ -39,6 +41,7 @@ function App() {
     }
     )
   }
+  const incPerSec = getIncomePerSec(game,businesses)
   const businessLogs: Record<string, string> ={
     "bakery": bakeryLogo,
     "car-factory": carFactoryLogo,
@@ -69,9 +72,7 @@ function App() {
 
   return (
     <section>
-      <h1>Time Forge</h1>
-      <p>Become the richest industrialist of all time.</p>
-      <p>Money: {formatCost(game.money)}</p>
+      <TopMenuBar money={game.money} incomePerSec={incPerSec}></TopMenuBar>
       <h2>Businesses</h2>
       {businesses.map(business => {
         const owned = game.businesses[business.id]

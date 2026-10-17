@@ -189,3 +189,29 @@
   object-fit: contain;
   background-size: 512px;
 }
+
+.topBar{
+  position: sticky;
+  top:0;
+  align-items: center;
+  gap: 28px;
+  padding: 12px 24px;
+  background-color:chocolate;
+  border-bottom: 4px solid crimson;
+}
+
+.gameLogo h1{
+  color:antiquewhite;
+  font-size: 24;
+}
+
+.gameLogo p{
+  color:blanchedalmond;
+  font: size 12px;
+}
+
+.stats{
+  display: flex;
+  align-items: center;
+  
+}
