@@ -182,3 +182,7 @@
     border-right-color: var(--border);
   }
 }
+.businessLogos{
+  width: 100px;
+  height:100px;
+}

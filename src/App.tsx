@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import './App.css'
 import { businesses } from './data/businesses'
@@ -5,7 +6,17 @@ import { advanceProduction } from './utils/gameLoop'
 import { createInitialState } from './utils/initialState'
 import { formatCost, formatQuants } from './utils/formatters'
 import { purchaseBusiness, getBusinessCost, getMaxAffordableAmount, getMaxUpgrades, getUpgradeCost, purchaseUpgrade } from './utils/purchases'
-
+import bakeryLogo from "./assets/Logos/Bakery.png"
+import carFactoryLogo from "./assets/Logos/CarFactory.png"
+import electronicsFactoryLogo from "./assets/Logos/ElectronicsFactory.png"
+import horseFarmLogo from "./assets/Logos/HorseFarm.svg"
+import lettuceFarmLogo from "./assets/Logos/LettuceFarmLogo.svg"
+import milkFarmLogo from "./assets/Logos/MilkFarm.png"
+import mineLogo from "./assets/Logos/Mine.svg"
+import restaurantLogo from "./assets/Logos/Restaurant.svg"
+import robotFactoryLogo from "./assets/Logos/RoboticsFactory.png"
+import clockMakerLogo from "./assets/Logos/Watchmaker.png"
+import wheatFarmLogo from "./assets/Logos/WheatFarm.svg"
 
 function App() {
 
@@ -26,6 +37,19 @@ function App() {
       }
     }
     )
+  }
+  const businessLogs: Record<string, string> ={
+    "bakery": bakeryLogo,
+    "car-factory": carFactoryLogo,
+    "electronics-factory": electronicsFactoryLogo,
+    "horse-farm": horseFarmLogo,
+    "lettuce-farm": lettuceFarmLogo,
+    "milk-farm": milkFarmLogo,
+    "mine": mineLogo,
+    "restaurant": restaurantLogo,
+    "robotics-laboratory": robotFactoryLogo,
+    "clocksmith": clockMakerLogo,
+    "wheat-farm": wheatFarmLogo
   }
   useEffect(() => {
     let previousTime = performance.now()
@@ -55,6 +79,7 @@ function App() {
 
         return (
           <div key={business.id}>
+            <img src={businessLogs[business.id]} className='businessLogos'></img>
             <h3>{business.name}</h3>
             <p>{business.description}</p>
             <p>Owned: {formatQuants(owned?.amt ?? 0)}</p>
@@ -123,7 +148,7 @@ function App() {
                         hidden={maxUpgrades === 0 || maxUpgrades === 1}
                         onClick={() => {
                           setGame(prevGame => {
-                            let game = prevGame
+                            let game = prevGame 
                             for (let i = 0; i < maxUpgrades; i++) {
                               game = purchaseUpgrade(game, business, upgrade.id)
                             }

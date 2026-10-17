@@ -78,17 +78,17 @@ Later, I might add achievements, prestige mechanics, additional worlds(space-rel
 ## Design Checklist (Tentative)
 
 ### 1. Business Artwork
-- [ ] Wheat Farm — wheat crop
-- [ ] Lettuce Farm — lettuce
-- [ ] Milk Farm — glass milk bottle
-- [ ] Horse Farm — horse
-- [ ] Bakery — cookie
-- [ ] Restaurant — plate with fork
-- [ ] Watchmaker — clock
-- [ ] Lumber Mill — tree
-- [ ] Mine — diamond
-- [ ] Electronics Factory — lightning bolt
-- [ ] Car Factory — sedan (likely sourced online)
+- [X] Wheat Farm — wheat crop
+- [X] Lettuce Farm — lettuce
+- [X] Milk Farm — glass milk bottle
+- [X] Horse Farm — horse
+- [X] Bakery — cookie
+- [X] Restaurant — plate with fork
+- [X] Watchmaker — clock
+- [X] Lumber Mill — tree
+- [X] Mine — diamond
+- [X] Electronics Factory — lightning bolt
+- [X] Car Factory — sedan (likely sourced online)
 - [ ] Robotics Lab — robot head or similar icon
 
 ### 2. Game Logos and Icons
