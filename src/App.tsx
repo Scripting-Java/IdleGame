@@ -9,14 +9,15 @@ import { purchaseBusiness, getBusinessCost, getMaxAffordableAmount, getMaxUpgrad
 import bakeryLogo from "./assets/Logos/Bakery.png"
 import carFactoryLogo from "./assets/Logos/CarFactory.png"
 import electronicsFactoryLogo from "./assets/Logos/ElectronicsFactory.png"
-import horseFarmLogo from "./assets/Logos/HorseFarm.svg"
-import lettuceFarmLogo from "./assets/Logos/LettuceFarmLogo.svg"
+import horseFarmLogo from "./assets/Logos/HorseFarm.png"
+import lettuceFarmLogo from "./assets/Logos/LettuceFarmLogo.png"
 import milkFarmLogo from "./assets/Logos/MilkFarm.png"
-import mineLogo from "./assets/Logos/Mine.svg"
-import restaurantLogo from "./assets/Logos/Restaurant.svg"
+import mineLogo from "./assets/Logos/Mine.png"
+import restaurantLogo from "./assets/Logos/Restaurant.png"
 import robotFactoryLogo from "./assets/Logos/RoboticsFactory.png"
 import clockMakerLogo from "./assets/Logos/Watchmaker.png"
-import wheatFarmLogo from "./assets/Logos/WheatFarm.svg"
+import wheatFarmLogo from "./assets/Logos/WheatFarm.png"
+import lumberMillLogo from "./assets/Logos/LumberMill.png"
 
 function App() {
 
@@ -49,7 +50,8 @@ function App() {
     "restaurant": restaurantLogo,
     "robotics-laboratory": robotFactoryLogo,
     "clocksmith": clockMakerLogo,
-    "wheat-farm": wheatFarmLogo
+    "wheat-farm": wheatFarmLogo,
+    "lumber-mill": lumberMillLogo 
   }
   useEffect(() => {
     let previousTime = performance.now()

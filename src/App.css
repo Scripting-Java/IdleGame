@@ -185,4 +185,7 @@
 .businessLogos{
   width: 100px;
   height:100px;
+  background-color: white;
+  object-fit: contain;
+  background-size: 512px;
 }
