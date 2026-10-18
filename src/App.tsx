@@ -4,7 +4,6 @@ import './App.css'
 import { businesses } from './data/businesses'
 import { advanceProduction } from './utils/gameLoop'
 import { createInitialState } from './utils/initialState'
-import { formatCost, formatQuants } from './utils/formatters'
 import { purchaseBusiness, getBusinessCost, getMaxAffordableAmount, getMaxUpgrades, getUpgradeCost, purchaseUpgrade } from './utils/purchases'
 import bakeryLogo from "./assets/Logos/Bakery.png"
 import carFactoryLogo from "./assets/Logos/CarFactory.png"
@@ -101,11 +100,31 @@ function App() {
               }
               return next
             })
-          }
+          }}
+          onUpgrade={upId =>{
+            setGame(prev=> purchaseUpgrade(prev,business,upId))
+          }}
+          onMaxUp={upId=>{
+            setGame(prev=>{
+              const upgrade = business.upgrades.find(up=>up.id===upId)!
+              const level = prev.businesses[business.id]?.upgradeLevels[upId]??0
+              const quant = getMaxUpgrades(prev.money,upgrade,business.category,level)
+              let next=prev
+              for(let i = 0; i<quant;i++){
+                next=purchaseUpgrade(next,business,upId)
+              }
+              return next
+            })
+          }}
+          getUpInfo={upId=>{
+            const upgrade = business.upgrades.find(upgrade=>upgrade.id===upId)!
+            const level = owned?.upgradeLevels[upId]??0
+            return{lvl:level,cost:getUpgradeCost(upgrade,business.category,level),maxed:level>=upgrade.maxLevel,maxAfford:getMaxUpgrades(game.money,upgrade,business.category,level)}
+          }}
+          />
         )
       })}
-    </section>
-  )
-}
+      </section>
+  )}
 
 export default App
