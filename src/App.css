@@ -189,9 +189,10 @@
 .businessLogos {
   width: 100px;
   height: 100px;
-  background-color: white;
+  background-color: rgb(255, 209, 166);
   object-fit: contain;
   background-size: 512px;
+  border-radius: 20px;
 }
 
 .topBar {
@@ -234,4 +235,44 @@
   color: rgb(255, 215, 155);
   font-size: 15px;
   font-weight: 700;
+}
+
+.busCard {
+  background-color: chocolate;
+  border: 8px solid #f38c72;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 16px 24px;
+  color: #e9c099;
+}
+
+.busCard h3 {
+  margin: 8px;
+  font-size: 22px;
+  color: #fffeaf
+}
+
+.busCard button {
+  background: #8b5e34;
+  color: #fff8e9;
+  border: 2px solid #704522;
+  border-radius: 7px;
+  padding: 9px 14px;
+  margin: 3px;
+  font-weight: 600;
+}
+
+.busCard button:hover:not(:disabled) {
+  background-color: #704522;
+  transform: translateY(-2px);
+}
+
+.upgradeCard h5 {
+  margin: 6px;
+  font-size: 16px;
+  color: #603c20;
+}
+
+.upgradeCard button {
+  margin-top: 8px;
 }

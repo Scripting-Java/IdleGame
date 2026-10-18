@@ -47,7 +47,7 @@ function BusinessCard({ business, owned, logo, unlocked, canUnlock, cost, maxAff
                         const info = getUpInfo(upgrade.id)
 
                         return (
-                            <div key={upgrade.id}>
+                            <div key={upgrade.id} className="upCard">
                                 <h5>{upgrade.name}</h5>
                                 <p>{upgrade.description}</p>
                                 <p>Level: {info.lvl} / {upgrade.maxLevel}</p>
