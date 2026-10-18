@@ -143,7 +143,7 @@ export const farms: Business[] = [
             {
                 id: "bigger-track",
                 name: "Bigger Track",
-                description: "A real racetrack! (10% slower, 25% more moeny)",
+                description: "A real racetrack! (10% slower, 25% more money)",
                 type: "cycle-time",
                 baseCost: 750,
                 cyclesMult:1.1,
