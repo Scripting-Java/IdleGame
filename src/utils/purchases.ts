@@ -86,7 +86,7 @@ export function getMaxUpgrades(money:number, upgrade:Upgrade, tier: BusinessCate
 }
 
 export function getUpgradeCost(upgrade: Upgrade, tier: BusinessCategory, numOfUpgrades: number): number {
-    return Math.pow(upgrade.baseCost*getTierScaling(tier), numOfUpgrades/10)
+    return Math.pow(upgrade.baseCost*getTierScaling(tier), (numOfUpgrades+10)/10)
 }
 
 export function purchaseUpgrade(state: GameState, business: Business, upgradeId: string): GameState {
