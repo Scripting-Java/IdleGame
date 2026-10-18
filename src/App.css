@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Adamina&family=Alegreya+Sans:wght@400;500;600;700;800&family=Alegreya+SC:wght@400;500;700&family=Aldrich&family=Almendra:wght@400;700&display=swap');
+
 body {
   font-family: 'Alegreya Sans', sans-serif;
 }
@@ -6,10 +7,11 @@ body {
 .gameLogo h1 {
   font-family: 'Adamina', serif;
 }
+
 .businessLogos {
   position: absolute;
-  top:75px;
-  left:20px;
+  top: 75px;
+  left: 20px;
   width: 125px;
   height: 125px;
   background-color: rgb(255, 209, 166);
@@ -64,7 +66,8 @@ body {
 }
 
 .busCard {
-  position:relative;
+  position: relative;
+  min-height: 250px;
   background-color: rgb(210 105 30 / 80%);
   border: 8px solid #f38c72;
   border-radius: 20px;
@@ -74,21 +77,27 @@ body {
   color: #e9c099;
   transition: background-color 0.5s ease, transform 0.5s, box-shadow 0.5s ease;
 }
+
 .type-farms {
   padding-top: 30px;
+  animation: breathe 8s ease-in-out infinite;
 }
 
 .type-workshops {
+  animation: breathe2 4s ease-in-out infinite;
   padding-top: 80px;
 }
 
 .type-industry {
+  animation: breathe3 6s ease-in-out infinite;
   padding-top: 130px;
 }
 
 .type-factories {
+  animation: breathe 12s ease-in-out infinite;
   padding-top: 130px;
 }
+
 .type-farms .busInfo {
   margin-top: 0;
 }
@@ -100,7 +109,6 @@ body {
 .type-industry .busInfo {
   position: relative;
   margin-top: -50px;
-
 }
 
 .type-factories .busInfo {
@@ -108,23 +116,23 @@ body {
   margin-top: -50px;
 }
 
-
-
-.busCard:hover{
+.busCard:hover {
   background-color: #d2691e;
   transform: translateY(-3px);
   box-shadow: 0 8px 18px rgb(0 0 0 / 20%);
+  animation-play-state: paused;
 }
 
 .busCard h3 {
-  position:absolute;
-  left:20px;
-  top:5px;
+  position: absolute;
+  left: 20px;
+  top: 5px;
   width: 125px;
   text-align: center;
   font-size: 22px;
   color: #fffeaf
 }
+
 .type-farms h3 {
   font-family: 'Adamina', serif;
 }
@@ -156,14 +164,14 @@ body {
   transform: translateY(-2px);
 }
 
-.busCard > details>summary{
+.busCard>details>summary {
   font-size: 18px;
   font-weight: 700;
   color: #fffeaf;
   margin: 14px;
 }
 
-.upCard{
+.upCard {
   background-color: rgb(241, 167, 113);
   border: 2px solid #f38c72;
   border-radius: 12px;
@@ -172,12 +180,35 @@ body {
   color: #603c20;
 }
 
-.upCard summary{
+.upCard summary {
   font-size: 16px;
 }
-.upCard p{
-  font-size:14px;
+
+.upCard p {
+  font-size: 14px;
 }
-.upCard button{
+
+.upCard button {
   font-size: 13px;
+}
+
+@keyframes breathe {
+  0%,100% {transform: translate(0, 0);}
+  25% {transform: translate(2px, -4px);}
+  60% {transform: translate(-2px, -1px);}
+  80% {transform: translate(1px, 3px);}
+}
+
+@keyframes breathe2 {
+  0%,100% {transform: translate(0, 0);}
+  25% {transform: translate(1px, 3px);}
+  60% {transform: translate(-2px, -1px);}
+  80% {transform: translate(2px, -4px);}
+}
+
+@keyframes breathe3 {
+  0%,100% {transform: translate(1px, 3px);}
+  25% {transform: translate(-2px, -1px);}
+  60% {transform: translate(2px, -4px);}
+  80% {transform: translate(0, 0);}
 }
