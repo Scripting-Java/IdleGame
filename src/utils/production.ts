@@ -57,7 +57,7 @@ export function getBusinessProduction(business: Business, ownedBusiness: OwnedBu
         const ownedLevel = Math.max(0, Math.floor(ownedBusiness.upgradeLevels[upgrade.id] ?? 0))
         const level = upgrade.maxLevel === undefined ? ownedLevel : Math.min(ownedLevel, upgrade.maxLevel)
         if (level <= 0) return false
-        prodMult *= Math.pow(upgrade.prodMult ?? 1, level)
+        prodMult *= 1+((upgrade.prodMult??1)-1)*level
         cyclesMult *= Math.pow(upgrade.cyclesMult ?? 1, level)
 
         if (upgrade.bonusChance !== undefined && upgrade.bonusMult !== undefined) {

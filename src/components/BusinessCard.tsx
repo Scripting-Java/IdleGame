@@ -6,6 +6,7 @@ interface BusinessCard {
     owned: OwnedBusiness | undefined,
     logo: string,
     unlocked: boolean,
+    canUnlock: boolean,
     cost: number,
     maxAfford: number,
     onUnlock: () => void,
@@ -15,7 +16,7 @@ interface BusinessCard {
     onMaxUp: (upId: string) => void,
     getUpInfo: (upID: string) => { lvl: number, cost: number, maxed: boolean, maxAfford: number }
 }
-function BusinessCard({ business, owned, logo, unlocked, cost, maxAfford, onUnlock, onPurchase, onMaxPurchase, onUpgrade, onMaxUp, getUpInfo }: BusinessCard) {
+function BusinessCard({ business, owned, logo, unlocked, canUnlock, cost, maxAfford, onUnlock, onPurchase, onMaxPurchase, onUpgrade, onMaxUp, getUpInfo }: BusinessCard) {
     const amountOwned = owned?.amt ?? 0
     return (
         <div className="busCard">
@@ -28,7 +29,7 @@ function BusinessCard({ business, owned, logo, unlocked, cost, maxAfford, onUnlo
             {!unlocked && (
                 <>
                     <p>Unlock Cost: {formatCost(business.unlockCost)}</p>
-                    <button onClick={onUnlock}>Unlock {business.name}</button>
+                    <button onClick={onUnlock} hidden={!canUnlock}>Unlock {business.name}</button>
                 </>
             )}
             {unlocked && (

@@ -87,6 +87,7 @@ function App() {
           owned={owned}
           logo={businessLogs[business.id]}
           unlocked={unlocked}
+          canUnlock={game.money>=business.unlockCost}
           cost={cost}
           maxAfford={unlocked? maxAffordable:0}
           onUnlock={()=>handleUnlock(business)}
