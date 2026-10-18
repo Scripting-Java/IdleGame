@@ -46,8 +46,8 @@ export const farms: Business[] = [
         name: "Lettuce Farm",
         description: "Lettuce is healthy, sells well, and is green like money",
         category: "farms",
-        baseCost: 50,
-        unlockCost: 40,
+        baseCost: 1000,
+        unlockCost: 800,
         cycleTimeSeconds: 2,
         revenuePerCycle: 6,
         upgrades: [
@@ -86,8 +86,8 @@ export const farms: Business[] = [
         name: "Milk Farm",
         description: "Vitamin D is good for you, better for your wallet.",
         category: "farms",
-        baseCost: 150,
-        unlockCost: 120,
+        baseCost: 10000,
+        unlockCost: 7500,
         cycleTimeSeconds: 3,
         revenuePerCycle: 15,
         upgrades: [
@@ -126,8 +126,8 @@ export const farms: Business[] = [
         name: "Horse Stables",
         description: "Look at them race! Off to the Derby they go.",
         category: "farms",
-        baseCost: 500,
-        unlockCost: 400,
+        baseCost: 75000,
+        unlockCost: 40000,
         cycleTimeSeconds: 5,
         revenuePerCycle: 40,
         upgrades: [

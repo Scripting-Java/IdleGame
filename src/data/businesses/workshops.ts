@@ -6,8 +6,8 @@ export const workshops: Business[] = [
         name: "Bakery",
         description: "Cookies, Scones, and other sweet things",
         category: "workshops",
-        baseCost: 1500,
-        unlockCost: 2200,
+        baseCost: 150000,
+        unlockCost: 220000,
         cycleTimeSeconds: 4,
         revenuePerCycle: 75,
         upgrades: [
@@ -46,8 +46,8 @@ export const workshops: Business[] = [
         name: "Restaurant",
         description: "Serve hungry customers so they FORK over their money.",
         category: "workshops",
-        baseCost: 5000,
-        unlockCost: 10000,
+        baseCost: 500000,
+        unlockCost: 1000000,
         cycleTimeSeconds: 6,
         revenuePerCycle: 200,
         upgrades: [
@@ -89,8 +89,8 @@ export const workshops: Business[] = [
         name: "ClockSmith",
         description: "Craft very very expensive watches.",
         category: "workshops",
-        baseCost: 15000,
-        unlockCost: 22500,
+        baseCost: 1500000,
+        unlockCost: 2250000,
         cycleTimeSeconds: 8,
         revenuePerCycle: 700,
         upgrades: [

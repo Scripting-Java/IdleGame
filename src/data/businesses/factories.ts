@@ -7,8 +7,8 @@ export const factories: Business[] = [
         name: "Electronics Factory",
         description: "Wires, circuits, and other SHOCKING things",
         category: "factories",
-        baseCost: 5000000,
-        unlockCost: 10000000,
+        baseCost: 500000000,
+        unlockCost: 1000000000,
         cycleTimeSeconds: 15,
         revenuePerCycle: 50000,
         upgrades: [
@@ -56,8 +56,8 @@ export const factories: Business[] = [
         name: "Car Factory",
         description: "Build cars to drive up those earnings.",
         category: "factories",
-        baseCost: 20000000,
-        unlockCost: 40000000,
+        baseCost: 2000000000,
+        unlockCost: 4000000000,
         cycleTimeSeconds: 20,
         revenuePerCycle: 150000,
         upgrades: [
@@ -114,8 +114,8 @@ export const factories: Business[] = [
         name: "Robotics Lab",
         description: "Very, very complicated. Makes good money.",
         category: "factories",
-        baseCost: 1000000000,
-        unlockCost: 2000000000,
+        baseCost: 100000000000,
+        unlockCost: 200000000000,
         cycleTimeSeconds: 25,
         revenuePerCycle: 1000000,
         upgrades: [

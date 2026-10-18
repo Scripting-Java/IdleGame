@@ -1,14 +1,15 @@
 import { formatCost } from "../utils/formatters";
+import TimeForgeLogo from "../assets/Logos/TimeForgeLogo.png"
 
 interface TopBarProps { money: number, incomePerSec: number }
 
 function TopMenuBar({ money, incomePerSec }: TopBarProps) {
     return (
         <header className="topBar">
+            <img src={TimeForgeLogo}/>
             <div className="gameLogo">
                 <h1>Time Forge</h1>
-                <p>Become the richest of all time.</p>
-                {/*<img></img> For the logo later, remove upon adding*/}
+                <p>Time is Money. Become the richest.</p>
             </div>
 
             <div className="stats">

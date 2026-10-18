@@ -7,6 +7,12 @@ body {
 .gameLogo h1 {
   font-family: 'Adamina', serif;
 }
+.topBar img{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
 .businessLogos {
   position: absolute;
@@ -26,7 +32,8 @@ body {
   z-index: 100;
   align-items: center;
   gap: 28px;
-  padding: 12px 24px;
+  padding: 12px 24px 0px;
+  margin-bottom: 0px;
   background-color: chocolate;
   border-bottom: 4px solid crimson;
   display: flex;
@@ -164,7 +171,7 @@ body {
   transform: translateY(-2px);
 }
 
-.busCard>details>summary {
+.busCard details summary {
   font-size: 18px;
   font-weight: 700;
   color: #fffeaf;

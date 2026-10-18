@@ -6,8 +6,8 @@ export const industry: Business[] = [
         name: "Lumber Mill",
         description: "Firewood, pencils, and Ikea tables. Wow it's everywhere.",
         category: "industry",
-        baseCost: 50000,
-        unlockCost: 100000,
+        baseCost: 5000000,
+        unlockCost: 10000000,
         cycleTimeSeconds: 10,
         revenuePerCycle: 2500,
         upgrades: [
@@ -55,8 +55,8 @@ export const industry: Business[] = [
         name: "The Mines",
         description: "Dig deep to fill your deep pockets",
         category: "industry",
-        baseCost: 1000000,
-        unlockCost: 1500000,
+        baseCost: 100000000,
+        unlockCost: 150000000,
         cycleTimeSeconds: 12,
         revenuePerCycle: 8000,
         upgrades: [
@@ -101,7 +101,7 @@ export const industry: Business[] = [
             {
                 id: "diamonds",
                 name: "Diamonds",
-                description: "Shiny, blue, rare. 10% chance to 10x your revenue",
+                description: "Shiny, Blue, Rare. 10% chance to 10x your revenue",
                 type: "bonus-chance",
                 baseCost: 2500000,
                 bonusChance: .1,
