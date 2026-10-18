@@ -73,7 +73,6 @@ function App() {
   return (
     <section>
       <TopMenuBar money={game.money} incomePerSec={incPerSec}></TopMenuBar>
-      <h2>Businesses</h2>
       {businesses.map(business => {
         const owned = game.businesses[business.id]
         const cost = getBusinessCost(business.baseCost, owned?.amt ?? 0, business.category)

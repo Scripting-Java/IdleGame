@@ -21,6 +21,7 @@ body {
 .topBar {
   position: sticky;
   top: 0;
+  z-index: 100;
   align-items: center;
   gap: 28px;
   padding: 12px 24px;
@@ -28,6 +29,8 @@ body {
   border-bottom: 4px solid crimson;
   display: flex;
 }
+
+
 
 .gameLogo h1 {
   color: antiquewhite;
