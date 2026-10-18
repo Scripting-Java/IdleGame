@@ -19,6 +19,7 @@ export const factories: Business[] = [
                 type: "production-mult",
                 baseCost: 12000000,
                 prodMult: 1.3,
+                maxLevel:80
             },
             {
                 id: "transistors",
@@ -27,6 +28,7 @@ export const factories: Business[] = [
                 type: "cycle-time",
                 baseCost: 7500000,
                 cyclesMult: 0.85,
+                maxLevel:80
             },
             {
                 id: "ram",
@@ -35,6 +37,7 @@ export const factories: Business[] = [
                 type: "production-mult",
                 baseCost: 10000000,
                 prodMult: 6.75,
+                maxLevel:80
             },
             {
                 id: "ai-chips",
@@ -44,6 +47,7 @@ export const factories: Business[] = [
                 baseCost: 15000000,
                 bonusChance: 0.8,
                 bonusMult: 6,
+                maxLevel:80
             },
         ],
     },
@@ -64,6 +68,7 @@ export const factories: Business[] = [
                 type: "production-mult",
                 baseCost: 20000000,
                 prodMult: 1.3,
+                maxLevel:90
             },
             {
                 id: "bigger-assembly-line",
@@ -72,6 +77,7 @@ export const factories: Business[] = [
                 type: "cycle-time",
                 baseCost: 30000000,
                 cyclesMult: 0.85,
+                maxLevel:90
             },
             {
                 id: "sport-mode",
@@ -80,6 +86,7 @@ export const factories: Business[] = [
                 type: "production-mult",
                 baseCost: 40000000,
                 prodMult: 1.75,
+                maxLevel:90
             },
             {
                 id: "luxury-interiors",
@@ -89,6 +96,7 @@ export const factories: Business[] = [
                 baseCost: 60000000,
                 bonusChance: 0.5,
                 bonusMult: 10,
+                maxLevel:90
             },
             {
                 id: "electric-vehicles",
@@ -97,6 +105,7 @@ export const factories: Business[] = [
                 type: "production-mult",
                 baseCost: 100000000,
                 prodMult: 1.3,
+                maxLevel:90
             },
         ],
     },
@@ -117,6 +126,7 @@ export const factories: Business[] = [
                 type: "production-mult",
                 baseCost: 1200000000,
                 prodMult: 1.5,
+                maxLevel:100
             },
             {
                 id: "advanced-machining",
@@ -125,6 +135,7 @@ export const factories: Business[] = [
                 type: "cycle-time",
                 baseCost: 1500000000,
                 cyclesMult: 0.85,
+                maxLevel:100
             },
             {
                 id: "humanoid-robots",
@@ -133,6 +144,7 @@ export const factories: Business[] = [
                 type: "production-mult",
                 baseCost: 2000000000,
                 prodMult: 3,
+                maxLevel:100
             },
             {
                 id: "autonomous-systems",
@@ -142,7 +154,8 @@ export const factories: Business[] = [
                 baseCost: 3000000000,
                 bonusChance: 0.1,
                 bonusMult: 6,
-                prodMult: 4
+                prodMult: 4,
+                maxLevel:100
             },
         ],
     },

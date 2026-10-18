@@ -18,6 +18,7 @@ export const workshops: Business[] = [
                 type: "production-mult",
                 baseCost: 1500,
                 prodMult: 1.2,
+                maxLevel:45
             },
             {
                 id: "cookie-cutters",
@@ -26,6 +27,7 @@ export const workshops: Business[] = [
                 type: "production-mult",
                 baseCost: 2250,
                 cyclesMult: 0.875,
+                maxLevel:45
             },
             {
                 id: "true-confectionery",
@@ -35,6 +37,7 @@ export const workshops: Business[] = [
                 baseCost: 3000,
                 bonusChance: .15,
                 bonusMult: 3,
+                maxLevel:45
             },
         ],
     },
@@ -57,6 +60,7 @@ export const workshops: Business[] = [
                 prodMult: 1.16,
                 bonusChance: 0.4,
                 bonusMult: 1.1,
+                maxLevel:50
             },
             {
                 id: "pizza",
@@ -65,6 +69,7 @@ export const workshops: Business[] = [
                 type: "cycle-time",
                 baseCost: 7500,
                 cyclesMult: 0.875,
+                maxLevel:50
             },
             {
                 id: "gelato",
@@ -75,6 +80,7 @@ export const workshops: Business[] = [
                 prodMult: 1.16,
                 bonusChance: .15,
                 bonusMult: 2.5,
+                maxLevel:50
             }
         ]
     },
@@ -94,7 +100,8 @@ export const workshops: Business[] = [
                 description: "A very antique timepiece. Perfect for collectors. Increase revenue by 30%",
                 type: "production-mult",
                 baseCost: 15000,
-                prodMult: 1.3
+                prodMult: 1.3,
+                maxLevel:55
             },
             {
                 id: "precise-gears",
@@ -103,7 +110,8 @@ export const workshops: Business[] = [
                 type: "production-mult",
                 baseCost: 30000,
                 prodMult: 2,
-                cyclesMult: 1.2
+                cyclesMult: 1.2,
+                maxLevel:55
             },
             {
                 id: "swiss-watch",
@@ -113,6 +121,7 @@ export const workshops: Business[] = [
                 baseCost: 45000,
                 bonusChance: 0.1,
                 bonusMult: 2,
+                maxLevel:55
             },
 
         ]

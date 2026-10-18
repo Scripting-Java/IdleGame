@@ -17,7 +17,8 @@ export const farms: Business[] = [
                 description: "Increase your production multiplier by 20%",
                 type: "production-mult",
                 baseCost: 20,
-                prodMult: 1.2
+                prodMult: 1.2,
+                maxLevel: 10
             },
             {
                 id: 'improved-irrigation',
@@ -25,7 +26,8 @@ export const farms: Business[] = [
                 description: "Reduce time per production cycle by 10%",
                 type: "cycle-time",
                 baseCost: 30,
-                cyclesMult: 0.9
+                cyclesMult: 0.9,
+                maxLevel: 10
             },
             {
                 id: 'tractors',
@@ -34,7 +36,8 @@ export const farms: Business[] = [
                 type: "bonus-chance",
                 baseCost: 40,
                 bonusChance: .1,
-                bonusMult: 1.5
+                bonusMult: 1.5,
+                maxLevel:10
             }
         ]
     },
@@ -54,7 +57,8 @@ export const farms: Business[] = [
                 description: "Sell more lettuce at once, increases your revenue per cycle by 20%",
                 type: "production-mult",
                 baseCost: 50,
-                prodMult: 1.2
+                prodMult: 1.2,
+                maxLevel:20
             },
             {
                 id: "fertilizer",
@@ -62,7 +66,8 @@ export const farms: Business[] = [
                 description: "Fertilizer makes your lettuce grow 10% faster!",
                 type: "cycle-time",
                 baseCost: 75,
-                cyclesMult:0.9
+                cyclesMult:0.9,
+                maxLevel:20
             },
             {
                 id: "more-farmers",
@@ -71,7 +76,8 @@ export const farms: Business[] = [
                 type: "bonus-chance",
                 baseCost: 100,
                 bonusChance: .15,
-                bonusMult: 1.5
+                bonusMult: 1.5,
+                maxLevel:20
             }
         ]
     },
@@ -91,7 +97,8 @@ export const farms: Business[] = [
                 description: "More Cows = More Milk. Simple maths (20% more money per cycle)",
                 type: "production-mult",
                 baseCost: 150,
-                prodMult: 1.2
+                prodMult: 1.2,
+                maxLevel:30
             },
             {
                 id: "more-grass",
@@ -99,7 +106,8 @@ export const farms: Business[] = [
                 description: "More grass = More milk (13.5% faster)",
                 type: "cycle-time",
                 baseCost: 225,
-                cyclesMult:0.875
+                cyclesMult:0.875,
+                maxLevel:30
             },
             {
                 id: "dairy-tanks",
@@ -108,7 +116,8 @@ export const farms: Business[] = [
                 type: "bonus-chance",
                 baseCost: 300,
                 bonusChance: .15,
-                bonusMult: 1.5
+                bonusMult: 1.5,
+                maxLevel:30
             }
         ]
     },
@@ -128,7 +137,8 @@ export const farms: Business[] = [
                 description: "Better training makes them a lot faster. And a lot more likely to win.(22.5% more money per cycle)",
                 type: "production-mult",
                 baseCost: 500,
-                prodMult: 1.225
+                prodMult: 1.225,
+                maxLevel:40
             },
             {
                 id: "bigger-track",
@@ -137,7 +147,8 @@ export const farms: Business[] = [
                 type: "cycle-time",
                 baseCost: 750,
                 cyclesMult:1.1,
-                prodMult: 1.25
+                prodMult: 1.25,
+                maxLevel:40
             },
             {
                 id: "kentucky-derby",
@@ -146,7 +157,8 @@ export const farms: Business[] = [
                 type: "bonus-chance",
                 baseCost: 1000,
                 bonusChance: .1,
-                bonusMult: 2
+                bonusMult: 2,
+                maxLevel:40
             }
         ]
     },

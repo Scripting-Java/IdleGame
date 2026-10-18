@@ -18,6 +18,7 @@ export const industry: Business[] = [
                 type: "cycle-time",
                 baseCost: 50000,
                 cyclesMult: 0.8,
+                maxLevel:60
             },
             {
                 id: "bigger-trucks",
@@ -26,6 +27,7 @@ export const industry: Business[] = [
                 type: "cycle-time",
                 baseCost: 150000,
                 cyclesMult: 0.8,
+                maxLevel:60
             },
             {
                 id: "hardwood-forest",
@@ -34,6 +36,7 @@ export const industry: Business[] = [
                 type: "production-mult",
                 baseCost: 250000,
                 prodMult: 1.15,
+                maxLevel:60
             },
             {
                 id: "resin-tree",
@@ -42,7 +45,8 @@ export const industry: Business[] = [
                 type: "production-mult",
                 baseCost: 500000,
                 bonusChance: .1,
-                bonusMult: 5
+                bonusMult: 5,
+                maxLevel:60
             },
         ]
     },
@@ -63,6 +67,7 @@ export const industry: Business[] = [
                 type: "cycle-time",
                 baseCost: 1000000,
                 cyclesMult: 1.08,
+                maxLevel:70
             },
             {
                 id: "better-pickaxes",
@@ -71,6 +76,7 @@ export const industry: Business[] = [
                 type: "production-mult",
                 baseCost: 1200000,
                 prodMult: 1.3,
+                maxLevel:70
             },
             {
                 id: "dynamite",
@@ -81,6 +87,7 @@ export const industry: Business[] = [
                 prodMult: 0.98,
                 bonusChance: 0.15,
                 bonusMult: 10,
+                maxLevel:70
             },
             {
                 id: "oil",
@@ -89,6 +96,7 @@ export const industry: Business[] = [
                 type: "production-mult",
                 baseCost: 2200000,
                 prodMult: 2,
+                maxLevel:70
             },
             {
                 id: "diamonds",
@@ -98,6 +106,7 @@ export const industry: Business[] = [
                 baseCost: 2500000,
                 bonusChance: .1,
                 bonusMult: 10,
+                maxLevel:70
             },
         ]
     }

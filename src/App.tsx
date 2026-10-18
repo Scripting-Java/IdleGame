@@ -20,6 +20,7 @@ import wheatFarmLogo from "./assets/Logos/WheatFarm.png"
 import lumberMillLogo from "./assets/Logos/LumberMill.png"
 import TopMenuBar from './components/TopMenuBar'
 import { getIncomePerSec } from './utils/income'
+import BusinessCard from './components/BusinessCard'
 
 function App() {
 
@@ -80,88 +81,28 @@ function App() {
         const unlocked = game.unlockedBusinesses.includes(business.id)
         const maxAffordable = getMaxAffordableAmount(game.money, owned?.amt ?? 0, business.category, business)
 
-        return (
-          <div key={business.id}>
-            <img src={businessLogs[business.id]} className='businessLogos'></img>
-            <h3>{business.name}</h3>
-            <p>{business.description}</p>
-            <p>Owned: {formatQuants(owned?.amt ?? 0)}</p>
-            <p>Cost: {formatCost(cost)}</p>
-            <p>{!unlocked && `Unlock Cost: ${formatCost(business.unlockCost)}`}</p>
-
-            {!unlocked && game.money >= business.unlockCost && (
-              <button onClick={() => handleUnlock(business)}>
-                Unlock {business.name}
-              </button>
-            )}
-
-            {unlocked && (
-              <button
-                onClick={() => handlePurchase(business)}
-                disabled={game.money < cost}
-              >
-                Buy
-              </button>
-            )}
-            <button
-              onClick={() => {
-                setGame(previousGame => {
-                  const quantity = getMaxAffordableAmount(
-                    previousGame.money,
-                    previousGame.businesses[business.id]?.amt ?? 0,
-                    business.category,
-                    business
-                  )
-
-                  let nextGame = previousGame
-
-                  for (let i = 0; i < quantity; i++) {
-                    nextGame = purchaseBusiness(nextGame, business)
-                  }
-
-                  return nextGame
-                })
-              }}
-              disabled={!unlocked || maxAffordable === 0 || maxAffordable === 1}
-              hidden={!unlocked || maxAffordable === 0 || maxAffordable === 1}
-
-            >
-              Buy Max ({maxAffordable})
-            </button>
-
-            {unlocked && owned && owned.amt > 0 && (
-              <div>
-                <h4>Upgrades</h4>
-                {business.upgrades.map(upgrade => {
-                  const level = owned.upgradeLevels[upgrade.id] ?? 0
-                  const cost = getUpgradeCost(upgrade, business.category, level)
-                  const maxed = upgrade.maxLevel !== undefined && level >= upgrade.maxLevel
-                  const maxUpgrades = getMaxUpgrades(game.money, upgrade, business.category, level)
-
-                  return (
-                    <div key={upgrade.id}>
-                      <h5>{upgrade.name}</h5>
-                      <p>{upgrade.description}</p>
-                      <p>Level: {level} {upgrade.maxLevel !== undefined && ` / ${upgrade.maxLevel}`}</p>
-                      <p>Cost: {formatCost(cost)}</p>
-                      <button disabled={maxed || game.money < cost} onClick={() => { setGame(prevGame => purchaseUpgrade(prevGame, business, upgrade.id)) }}>
-                        {maxed ? 'Already At Max Level' : 'Buy Upgrade'}
-                      </button>
-                      <button disabled={maxUpgrades === 0 || maxUpgrades === 1}
-                        hidden={maxUpgrades === 0 || maxUpgrades === 1}
-                        onClick={() => {
-                          setGame(prevGame => {
-                            let game = prevGame 
-                            for (let i = 0; i < maxUpgrades; i++) {
-                              game = purchaseUpgrade(game, business, upgrade.id)
-                            }
-                            return game
-                          }) 
-                        }}>Buy Max ({maxUpgrades})</button>
-                    </div>)
-                })}
-              </div>)}
-          </div>)
+        return(
+          <BusinessCard
+          key={business.id}
+          business={business}
+          owned={owned}
+          logo={businessLogs[business.id]}
+          unlocked={unlocked}
+          cost={cost}
+          maxAfford={unlocked? maxAffordable:0}
+          onUnlock={()=>handleUnlock(business)}
+          onPurchase={()=>handlePurchase(business)}
+          onMaxPurchase={()=> {
+            setGame(prev => {
+              const quant = getMaxAffordableAmount(prev.money, prev.businesses[business.id]?.amt ?? 0, business.category, business)
+              let next=prev
+              for(let i =0; i<quant;i++){
+                next=purchaseBusiness(next,business)
+              }
+              return next
+            })
+          }
+        )
       })}
     </section>
   )
