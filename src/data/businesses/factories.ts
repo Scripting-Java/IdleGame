@@ -111,8 +111,8 @@ export const factories: Business[] = [
     },
     {
         id: "robotics-laboratory",
-        name: "Robotics Laboratory",
-        description: "Very very complicated. Makes good money.",
+        name: "Robotics Lab",
+        description: "Very, very complicated. Makes good money.",
         category: "factories",
         baseCost: 1000000000,
         unlockCost: 2000000000,

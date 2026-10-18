@@ -3,6 +3,7 @@ export function formatCost(num: number): string{
         notation: "compact",
         style: "currency",
         currency: "USD",
+        minimumFractionDigits:2,
         maximumFractionDigits: 2
     }).format(num)
 }

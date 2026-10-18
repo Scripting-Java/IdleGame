@@ -123,7 +123,7 @@ export const farms: Business[] = [
     },
     {
         id: "horse-farm",
-        name: "Horse Farm",
+        name: "Horse Stables",
         description: "Look at them race! Off to the Derby they go.",
         category: "farms",
         baseCost: 500,

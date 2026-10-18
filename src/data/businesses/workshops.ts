@@ -44,7 +44,7 @@ export const workshops: Business[] = [
     {
         id: "restaurant",
         name: "Restaurant",
-        description: "Serve hungry customers so they FORK over their money. Haha get it? Fork? No? Yeah didn't think so :(",
+        description: "Serve hungry customers so they FORK over their money.",
         category: "workshops",
         baseCost: 5000,
         unlockCost: 10000,
