@@ -21,7 +21,7 @@ Start small, build your business empire with farms and workshops, and work your 
 
 ## Game Link:
 If you don't want to look at the code, and just want to play the game, here's the link: 
-https://scripting-java.github.io/IdleGame/
+https://scripting-java.github.io/TimeForge/
 
 ## Running it locally
 ### Prerequisites
@@ -40,10 +40,8 @@ Choose either method below.
 *Note:* It's probably much easier to just download the file from github instead for most people.
 Make sure [Git](https://git-scm.com/) is installed, then open a terminal and run:
 
-```bash
-git clone https://github.com/Scripting-Java/IdleGame.git
-cd IdleGame
-```
+bash git clone https://github.com/Scripting-Java/TimeForge.git
+
 
 #### Option B: Download as a ZIP
 1. Download the zip file from the repository on github.
