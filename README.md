@@ -76,7 +76,7 @@ http://localhost:5173/
 Open that URL in your browser to run TimeForge. Keep the terminal open while playing.
 
 
-## 🛠️ Development Commands
+## Node commands
 
 | Command | Purpose |
 |---|---|
