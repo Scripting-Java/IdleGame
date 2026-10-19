@@ -20,6 +20,7 @@ import lumberMillLogo from "./assets/Logos/LumberMill.png"
 import TopMenuBar from './components/TopMenuBar'
 import { getIncomePerSec } from './utils/income'
 import BusinessCard from './components/BusinessCard'
+import Background from './components/background'
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
 
   return (
     <section>
+      <Background />
       <TopMenuBar money={game.money} incomePerSec={incPerSec}></TopMenuBar>
       {businesses.map(business => {
         const owned = game.businesses[business.id]

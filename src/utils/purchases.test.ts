@@ -83,7 +83,7 @@ it("allows you to keep upgrading if there is no maxLevel", () => {
     const state = createTempState()
     state.businesses["test-farm"].upgradeLevels["better-crops"]=5
     const result = purchaseUpgrade(state,testBusiness,"better-crops")
-    expect(result.money).toBeCloseTo(100-Math.pow(10,0.5))
+    expect(result.money).toBeCloseTo(100-Math.pow(10,1.5))
     expect(result.businesses["test-farm"].upgradeLevels["better-crops"]).toBe(6)
 })
 
