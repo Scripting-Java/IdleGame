@@ -5,10 +5,14 @@ body {
   background-color: #543757;
 }
 
-.gameLogo h1 {
-  font-family: 'Adamina', serif;
+html,
+body,
+#root {
+  border: none;
+  outline: none;
 }
-.topBar img{
+
+.topBar img {
   width: 100px;
   height: 100px;
   object-fit: contain;
@@ -17,7 +21,7 @@ body {
 
 .businessLogos {
   position: absolute;
-  top: 75px;
+  top: 80px;
   left: 20px;
   width: 125px;
   height: 125px;
@@ -40,12 +44,10 @@ body {
   display: flex;
 }
 
-
-
 .gameLogo h1 {
   color: antiquewhite;
   font-size: 24px;
-  margin: 0;
+  font-family: 'Adamina', serif;
 }
 
 .gameLogo p {
@@ -201,25 +203,65 @@ body {
 }
 
 @keyframes breathe {
-  0%,100% {transform: translate(0, 0);}
-  25% {transform: translate(2px, -4px);}
-  60% {transform: translate(-2px, -1px);}
-  80% {transform: translate(1px, 3px);}
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(2px, -4px);
+  }
+
+  60% {
+    transform: translate(-2px, -1px);
+  }
+
+  80% {
+    transform: translate(1px, 3px);
+  }
 }
 
 @keyframes breathe2 {
-  0%,100% {transform: translate(0, 0);}
-  25% {transform: translate(1px, 3px);}
-  60% {transform: translate(-2px, -1px);}
-  80% {transform: translate(2px, -4px);}
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(1px, 3px);
+  }
+
+  60% {
+    transform: translate(-2px, -1px);
+  }
+
+  80% {
+    transform: translate(2px, -4px);
+  }
 }
 
 @keyframes breathe3 {
-  0%,100% {transform: translate(1px, 3px);}
-  25% {transform: translate(-2px, -1px);}
-  60% {transform: translate(2px, -4px);}
-  80% {transform: translate(0, 0);}
+
+  0%,
+  100% {
+    transform: translate(1px, 3px);
+  }
+
+  25% {
+    transform: translate(-2px, -1px);
+  }
+
+  60% {
+    transform: translate(2px, -4px);
+  }
+
+  80% {
+    transform: translate(0, 0);
+  }
 }
+
 .background {
   position: fixed;
   inset: 0;

@@ -52,7 +52,7 @@ bash git clone https://github.com/Scripting-Java/TimeForge.git
 
 For either option, make sure [Node.js](https://nodejs.org/) is installed. npm is included with Node.js.
 
-In your terminal run:
+In your terminal(in the game directory) run:
 
 ```bash
 npm install
@@ -91,3 +91,4 @@ Open that URL in your browser to run TimeForge. Keep the terminal open while pla
 - **React w/ Typescript** 
 - **CSS** 
 - **Vitest Library**
+- **All the logos were arranged and designed by me in vector pea *However, I did use online cliparts are references to trace or inserted them as part of the logo. They were free non-licensable cliparts from google.***
