@@ -21,7 +21,7 @@ Start small, build your business empire with farms and workshops, and work your 
 
 ## Game Link:
 If you don't want to look at the code, and just want to play the game, here's the link: 
-
+https://scripting-java.github.io/IdleGame/
 
 ## Running it locally
 ### Prerequisites
@@ -86,7 +86,7 @@ Open that URL in your browser to run TimeForge. Keep the terminal open while pla
 | `npm run dev` | Start the development server |
 | `npm run build` | Check TypeScript and find any errors. There shouldn't be any, but if there are it might be a node version difference. The device this was tested on has node version v24.19.0 and node package manager version 12.0.2|
 | `npm run lint` | Typescript checker|
-| `npm test` | Tests when I was initally making the production and mechanics. You can run them for thoroughness, but 4 will fail because 4 use the old version of the cost formula which I have not updated, because I'll likely change the cost scaling again. It might not be done this ship, so keep that in mind.|
+| `npm test` | Tests when I was initally making the production and mechanics.|
 
 ## What I used:
 

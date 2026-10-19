@@ -11,6 +11,7 @@ const testUpgrades: Upgrade[] = [
         type: "production-mult",
         baseCost: 10,
         prodMult: 2,
+        maxLevel: 10
     },
     {
         id: "faster-cycles",
@@ -19,6 +20,7 @@ const testUpgrades: Upgrade[] = [
         type: "cycle-time",
         baseCost: 20,
         cyclesMult: 0.5,
+        maxLevel: 10
     },
     {
         id: "lucky-production",
@@ -28,6 +30,7 @@ const testUpgrades: Upgrade[] = [
         baseCost: 30,
         bonusChance: 0.25,
         bonusMult: 2,
+        maxLevel: 10
     }
 ]
 

@@ -90,6 +90,7 @@ describe("advanceProduction",()=>{
                     type: "production-mult",
                     baseCost: 10,
                     prodMult: 2,
+                    maxLevel: 10
                 },
             ],
         };
@@ -116,6 +117,7 @@ describe("advanceProduction",()=>{
                     baseCost: 10,
                     bonusChance: 0.5,
                     bonusMult: 2,
+                    maxLevel: 10
                 },
             ],
         };
